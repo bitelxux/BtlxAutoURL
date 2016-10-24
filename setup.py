@@ -14,6 +14,6 @@ setup(name=PACKAGE,
                      on trac.ini btlxautourl section
                   """,
       license="GNU",
-      url="",
+      url="https://github.com/bitelxux/BtlxAutoURL",
 
 )
