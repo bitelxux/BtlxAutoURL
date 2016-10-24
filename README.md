@@ -12,7 +12,7 @@ to the URLs defined.
 
 e.g.
 
-.. code:
+.. code::
 
   [btlxautourl]
   google = http://www.google.com
