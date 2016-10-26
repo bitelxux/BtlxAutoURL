@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: BtlxAutoURL
+Version: 0.1
+Summary: Autoexpand urls from plain text based 
+                     on trac.ini btlxautourl section
+                  
+Home-page: https://github.com/bitelxux/BtlxAutoURL
+Author: Bitelxux
+Author-email: bitelxux@gmail.com
+License: GNU
+Description: UNKNOWN
+Platform: UNKNOWN

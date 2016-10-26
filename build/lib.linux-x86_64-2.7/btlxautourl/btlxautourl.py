@@ -15,7 +15,7 @@ google = http://www.google.com
 starwars = http://www.starwars.com
 
 Then, all the words "google" and "starwars" will be
-rendered automatically as links to their URLs. Not need any
+rendered automatically as their URLs. Not need any
 more of typing [[http://bla.ble.blu|text]]
 
 """
@@ -35,9 +35,8 @@ class BtlxAutoURL(Component):
         for option in options:
             self.AutoExpandList[option[0]] = option[1]
 
-        self.words = "|".join(r'\b[%s|%s]%s\b' % (k[0].lower(),
-                         k[0].upper(), k[1:])
-                         for k in self.AutoExpandList.keys())
+        self.words = "|".join(r'\b[%s|%s]%s\b' % (k[0].lower(), k[0].upper(), k[1:]) \
+                     for k in self.AutoExpandList.keys())
 
         super(BtlxAutoURL, self).__init__(*args, **kwargs)
 

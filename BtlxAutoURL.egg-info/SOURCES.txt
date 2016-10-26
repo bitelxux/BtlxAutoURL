@@ -1,0 +1,8 @@
+setup.py
+BtlxAutoURL.egg-info/PKG-INFO
+BtlxAutoURL.egg-info/SOURCES.txt
+BtlxAutoURL.egg-info/dependency_links.txt
+BtlxAutoURL.egg-info/entry_points.txt
+BtlxAutoURL.egg-info/top_level.txt
+btlxautourl/__init__.py
+btlxautourl/btlxautourl.py
