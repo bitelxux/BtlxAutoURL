@@ -33,11 +33,15 @@ class BtlxAutoURL(Component):
         self.AutoExpandList = {}
         options = self.env.config.options('btlxautourl')
         for option in options:
-            self.AutoExpandList[option[0]] = option[1]
+            self.AutoExpandList[option[0].lower()] = option[1]
 
-        self.words = "|".join(r'\b[%s|%s]%s\b' % (k[0].lower(),
-                         k[0].upper(), k[1:])
-                         for k in self.AutoExpandList.keys())
+        # Too complex regular until I either found out how to use compiled
+        # regulars with re.IGNORECASE or how to ignore case without compile
+        # ( at this moment, (?i) does not work )
+        self.words = "|".join("".join( r'[%s|%s]' %(word[i].lower(),
+                                                    word[i].upper()) for i in
+                                                    range(len(word)))
+                         for word in self.AutoExpandList.keys())
 
         super(BtlxAutoURL, self).__init__(*args, **kwargs)
 
@@ -47,7 +51,8 @@ class BtlxAutoURL(Component):
     def get_wiki_syntax(self):
         if not self.words:
             return
-        yield (r'(?P<keyword>(%s))' % self.words, 
+
+        yield (r'(?P<keyword>(%s))' % self.words,
                self._format_regex_link)
 
     def _format_regex_link(self, formatter, ns, match):
@@ -55,4 +60,3 @@ class BtlxAutoURL(Component):
         keyword = match.group('keyword') or 'test'
         label= match.group(0)
         return tag.a(keyword, href=self.AutoExpandList[keyword.lower()])
-
