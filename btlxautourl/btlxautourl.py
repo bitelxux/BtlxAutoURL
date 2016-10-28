@@ -57,5 +57,4 @@ class BtlxAutoURL(Component):
     def _format_regex_link(self, formatter, ns, match):
         self.env.log.debug('formatter: %s ns: %s' % (formatter, ns))
         keyword = match.group('keyword') or 'test'
-        label= match.group(0)
         return tag.a(keyword, href=self.AutoExpandList[keyword.lower()])
