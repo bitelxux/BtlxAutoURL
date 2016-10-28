@@ -38,8 +38,8 @@ class BtlxAutoURL(Component):
         # Too complex regular until I either found out how to use compiled
         # regulars with re.IGNORECASE or how to ignore case without compile
         # ( at this moment, (?i) does not work )
-        self.words = "|".join("".join( r'[%s|%s]' %(c.lower(), c.upper())
-                                       for c in word)
+        self.words = "|".join(r'\b' + "".join(r'[%s|%s]' %(c.lower(), c.upper())
+                                       for c in word) + r'\b'
                          for word in self.AutoExpandList.keys())
 
         super(BtlxAutoURL, self).__init__(*args, **kwargs)
@@ -57,4 +57,4 @@ class BtlxAutoURL(Component):
     def _format_regex_link(self, formatter, ns, match):
         self.env.log.debug('formatter: %s ns: %s' % (formatter, ns))
         keyword = match.group('keyword') or 'test'
-        return tag.a(keyword, href=self.AutoExpandList[keyword.lower()])
+        return tag.a(keyword, href=self.AutoExpandList[keyword.lower().strip()])
