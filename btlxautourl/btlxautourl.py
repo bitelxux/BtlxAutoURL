@@ -39,7 +39,7 @@ class BtlxAutoURL(Component):
         # regulars with re.IGNORECASE or how to ignore case without compile
         # ( at this moment, (?i) does not work )
         self.words = "|".join(r'\b' + "".join(r'[%s|%s]' %(c.lower(), c.upper())
-                                       for c in word) + r'\b[\s*]'
+                                       for c in word) + r'\b'
                          for word in self.AutoExpandList.keys())
 
         super(BtlxAutoURL, self).__init__(*args, **kwargs)
