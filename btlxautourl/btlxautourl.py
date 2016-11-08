@@ -3,7 +3,6 @@
 btlxautourl.py
 Bitelxux Oct-2016
 
-
 This is a plugin for trac that automatically expands
 words defined in section [btlxautourl] from trac.ini
 to the URLs defined.
